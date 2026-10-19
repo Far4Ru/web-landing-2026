@@ -1,0 +1,596 @@
+{
+  "schemaVersion": 1,
+  "engineApiVersion": "1.0",
+  "project": {
+    "id": "tetris",
+    "name": "Tetris",
+    "width": 640,
+    "height": 480,
+    "background": "#0f172a",
+    "initialScene": "game",
+    "seed": 20260907
+  },
+  "assets": [
+    {
+      "id": "scene-background",
+      "type": "image",
+      "path": "assets/images/bg-scene-v2.png"
+    },
+    {
+      "id": "tile",
+      "type": "image",
+      "path": "assets/images/tile.png"
+    },
+    {
+      "id": "music",
+      "type": "audio",
+      "path": "assets/audio/music.wav"
+    },
+    {
+      "id": "effect",
+      "type": "audio",
+      "path": "assets/audio/effect.wav"
+    }
+  ],
+  "input": [
+    {
+      "action": "left",
+      "inputs": [
+        "ArrowLeft",
+        "KeyA"
+      ]
+    },
+    {
+      "action": "right",
+      "inputs": [
+        "ArrowRight",
+        "KeyD"
+      ]
+    },
+    {
+      "action": "down",
+      "inputs": [
+        "ArrowDown",
+        "KeyS"
+      ]
+    },
+    {
+      "action": "rotate",
+      "inputs": [
+        "ArrowUp",
+        "KeyW"
+      ]
+    },
+    {
+      "action": "drop",
+      "inputs": [
+        "Space"
+      ]
+    },
+    {
+      "action": "pause",
+      "inputs": [
+        "KeyP"
+      ]
+    }
+  ],
+  "saves": {
+    "namespace": "animalist:tetris",
+    "version": 1,
+    "defaults": {}
+  },
+  "scenes": [
+    {
+      "id": "game",
+      "systems": [],
+      "entities": []
+    }
+  ],
+  "plugins": [
+    {
+      "id": "falling-grid",
+      "version": "1.0.0",
+      "config": {
+        "cellImage": "tile",
+        "columns": 10,
+        "rows": 20,
+        "seed": 20260907,
+        "gravitySeconds": 0.8,
+        "minimumGravitySeconds": 0.08,
+        "speedFactor": 0.8,
+        "linesPerLevel": 10,
+        "lineScores": [
+          0,
+          100,
+          300,
+          500,
+          800
+        ],
+        "kicks": [
+          [
+            0,
+            0
+          ],
+          [
+            -1,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            -2,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            0,
+            -1
+          ]
+        ],
+        "colors": [
+          "#22d3ee",
+          "#60a5fa",
+          "#fb923c",
+          "#facc15",
+          "#4ade80",
+          "#c084fc",
+          "#f87171"
+        ],
+        "pieces": [
+          [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              3,
+              0
+            ]
+          ],
+          [
+            [
+              0,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          [
+            [
+              2,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          [
+            [
+              1,
+              0
+            ],
+            [
+              2,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ]
+          ],
+          [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ],
+          [
+            [
+              0,
+              0
+            ],
+            [
+              1,
+              0
+            ],
+            [
+              1,
+              1
+            ],
+            [
+              2,
+              1
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "id": "session",
+      "version": "1.0.0",
+      "config": {
+        "menu": true,
+        "music": "music",
+        "effect": "effect",
+        "capacity": 10
+      }
+    }
+  ],
+  "presentation": {
+    "accent": "#57efff",
+    "language": "ru",
+    "instructions": "Собирайте полные линии. Удерживайте стрелки для движения, вверх — поворот, вниз — ускорение, пробел — мгновенный сброс.",
+    "controls": [
+      {
+        "action": "left",
+        "label": "←",
+        "x": 22,
+        "y": 344,
+        "width": 72,
+        "height": 58,
+        "style": {
+          "background": "#08284ddd",
+          "borderColor": "#45d8ef",
+          "color": "#fff",
+          "borderWidth": 2,
+          "radius": 14,
+          "fontSize": 22,
+          "selectedBackground": "#45d8ef"
+        },
+        "phases": [
+          "playing"
+        ]
+      },
+      {
+        "action": "right",
+        "label": "→",
+        "x": 100,
+        "y": 344,
+        "width": 72,
+        "height": 58,
+        "style": {
+          "background": "#08284ddd",
+          "borderColor": "#45d8ef",
+          "color": "#fff",
+          "borderWidth": 2,
+          "radius": 14,
+          "fontSize": 22,
+          "selectedBackground": "#45d8ef"
+        },
+        "phases": [
+          "playing"
+        ]
+      },
+      {
+        "action": "rotate",
+        "label": "↻",
+        "x": 468,
+        "y": 276,
+        "width": 70,
+        "height": 58,
+        "style": {
+          "background": "#3d1758dd",
+          "borderColor": "#ef72ff",
+          "color": "#fff",
+          "borderWidth": 2,
+          "radius": 14,
+          "fontSize": 22,
+          "selectedBackground": "#ef72ff"
+        },
+        "phases": [
+          "playing"
+        ],
+        "hold": false
+      },
+      {
+        "action": "down",
+        "label": "↓",
+        "x": 546,
+        "y": 276,
+        "width": 70,
+        "height": 58,
+        "style": {
+          "background": "#08284ddd",
+          "borderColor": "#45d8ef",
+          "color": "#fff",
+          "borderWidth": 2,
+          "radius": 14,
+          "fontSize": 22,
+          "selectedBackground": "#45d8ef"
+        },
+        "phases": [
+          "playing"
+        ]
+      },
+      {
+        "action": "drop",
+        "label": "DROP",
+        "x": 468,
+        "y": 344,
+        "width": 148,
+        "height": 58,
+        "style": {
+          "background": "#54204ddd",
+          "borderColor": "#ff6fdc",
+          "color": "#fff",
+          "borderWidth": 2,
+          "radius": 14,
+          "fontSize": 22,
+          "selectedBackground": "#ff6fdc"
+        },
+        "phases": [
+          "playing"
+        ],
+        "hold": false
+      },
+      {
+        "action": "pause",
+        "label": "Ⅱ",
+        "x": 556,
+        "y": 18,
+        "width": 60,
+        "height": 42,
+        "style": {
+          "background": "#092444cc",
+          "borderColor": "#45d8ef",
+          "color": "#fff",
+          "borderWidth": 2,
+          "radius": 14,
+          "fontSize": 22,
+          "selectedBackground": "#45d8ef"
+        },
+        "phases": [
+          "playing"
+        ],
+        "hold": false
+      }
+    ],
+    "actions": [
+      {
+        "action": "session:start",
+        "label": "Старт",
+        "x": 220,
+        "y": 330,
+        "width": 200,
+        "height": 62,
+        "style": {
+          "background": "#063d65e8",
+          "borderColor": "#57efff",
+          "color": "#fff",
+          "borderWidth": 2,
+          "radius": 14,
+          "fontSize": 22,
+          "selectedBackground": "#57efff"
+        },
+        "phases": [
+          "ready"
+        ],
+        "hold": false
+      },
+      {
+        "action": "session:scores",
+        "label": "Рекорды",
+        "x": 230,
+        "y": 405,
+        "width": 180,
+        "height": 44,
+        "style": {
+          "background": "#241b4ddd",
+          "borderColor": "#b563e9",
+          "color": "#fff",
+          "borderWidth": 2,
+          "radius": 14,
+          "fontSize": 22,
+          "selectedBackground": "#b563e9"
+        },
+        "phases": [
+          "ready"
+        ],
+        "hold": false
+      },
+      {
+        "action": "session:menu",
+        "label": "Меню",
+        "x": 24,
+        "y": 18,
+        "width": 90,
+        "height": 40,
+        "style": {
+          "background": "#092444cc",
+          "borderColor": "#45d8ef",
+          "color": "#fff",
+          "borderWidth": 2,
+          "radius": 14,
+          "fontSize": 22,
+          "selectedBackground": "#45d8ef"
+        },
+        "phases": [
+          "playing",
+          "won",
+          "lost"
+        ],
+        "hold": false
+      },
+      {
+        "action": "restart",
+        "label": "Снова",
+        "x": 220,
+        "y": 330,
+        "width": 200,
+        "height": 62,
+        "style": {
+          "background": "#56204ee8",
+          "borderColor": "#ff6fdc",
+          "color": "#fff",
+          "borderWidth": 2,
+          "radius": 14,
+          "fontSize": 22,
+          "selectedBackground": "#ff6fdc"
+        },
+        "phases": [
+          "lost"
+        ],
+        "hold": false
+      }
+    ],
+    "canvas": {
+      "backgroundImage": "scene-background",
+      "hud": [
+        {
+          "id": "title",
+          "source": "title",
+          "x": 160,
+          "y": 62,
+          "width": 320,
+          "height": 62,
+          "phases": [
+            "ready"
+          ],
+          "fontSize": 42,
+          "color": "#8cf7ff",
+          "align": "center"
+        },
+        {
+          "id": "help",
+          "source": "instructions",
+          "x": 105,
+          "y": 160,
+          "width": 430,
+          "height": 116,
+          "phases": [
+            "ready"
+          ],
+          "fontSize": 19,
+          "color": "#e8fbff",
+          "align": "center",
+          "maxLines": 5,
+          "background": "#07162fe0",
+          "borderColor": "#325da0",
+          "borderWidth": 2,
+          "radius": 14,
+          "padding": 14
+        },
+        {
+          "id": "score",
+          "source": "score",
+          "x": 22,
+          "y": 88,
+          "width": 165,
+          "height": 36,
+          "phases": [
+            "playing"
+          ],
+          "prefix": "Очки ",
+          "fontSize": 23,
+          "color": "#73efff"
+        },
+        {
+          "id": "status",
+          "source": "status",
+          "x": 450,
+          "y": 88,
+          "width": 168,
+          "height": 100,
+          "phases": [
+            "playing"
+          ],
+          "fontSize": 18,
+          "color": "#f0e8ff",
+          "align": "center",
+          "maxLines": 4,
+          "background": "#0b1839b8",
+          "borderColor": "#633aa1",
+          "borderWidth": 2,
+          "radius": 14,
+          "padding": 14
+        },
+        {
+          "id": "result",
+          "source": "status",
+          "x": 175,
+          "y": 190,
+          "width": 290,
+          "height": 92,
+          "phases": [
+            "lost"
+          ],
+          "fontSize": 34,
+          "color": "#ff9de7",
+          "align": "center",
+          "maxLines": 2,
+          "background": "#170d32e8",
+          "borderColor": "#ff65db",
+          "borderWidth": 2,
+          "radius": 14,
+          "padding": 14
+        }
+      ]
+    }
+  }
+}

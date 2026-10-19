@@ -1,0 +1,33 @@
+name: Build static site
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Check bundled scene and game exports
+        run: |
+          test -s dist/scene/scene.js
+          test -s dist/index.html
+          for game in knight_vs_dragon arcanoid snake tetris doodle_jump tower_blocks; do
+            test -s "dist/games/$game/index.html"
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: static-site
+          path: dist/
+          if-no-files-found: error

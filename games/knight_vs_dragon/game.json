@@ -1,0 +1,513 @@
+{
+  "schemaVersion": 1,
+  "engineApiVersion": "1.0",
+  "project": {
+    "id": "knight_vs_dragon",
+    "name": "Knight vs Dragon",
+    "width": 640,
+    "height": 480,
+    "background": "#101b30",
+    "initialScene": "main",
+    "seed": 20260907
+  },
+  "assets": [
+    {
+      "id": "hero-1",
+      "type": "image",
+      "path": "assets/images/source-sword-1.png"
+    },
+    {
+      "id": "hero-2",
+      "type": "image",
+      "path": "assets/images/source-sword-2.png"
+    },
+    {
+      "id": "tile",
+      "type": "image",
+      "path": "assets/images/source-sword-3.png"
+    },
+    {
+      "id": "bullet",
+      "type": "image",
+      "path": "assets/images/source-sword-4.png"
+    },
+    {
+      "id": "platform",
+      "type": "image",
+      "path": "assets/images/source-sword-5.png"
+    },
+    {
+      "id": "enemy-1",
+      "type": "image",
+      "path": "assets/images/source-fire.png"
+    },
+    {
+      "id": "battle-background",
+      "type": "image",
+      "path": "assets/images/bg-battle-v2.png"
+    },
+    {
+      "id": "source-knight",
+      "type": "image",
+      "path": "assets/images/source-knight.png"
+    },
+    {
+      "id": "source-dragon",
+      "type": "image",
+      "path": "assets/images/source-dragon.png"
+    },
+    {
+      "id": "source-cell",
+      "type": "image",
+      "path": "assets/images/source-cell.png"
+    },
+    {
+      "id": "provenance",
+      "type": "json",
+      "path": "assets/data/provenance.json"
+    },
+    {
+      "id": "music",
+      "type": "audio",
+      "path": "assets/audio/music.wav"
+    },
+    {
+      "id": "effect",
+      "type": "audio",
+      "path": "assets/audio/effect.wav"
+    }
+  ],
+  "input": [
+    {
+      "action": "left",
+      "inputs": [
+        "ArrowLeft",
+        "KeyA"
+      ]
+    },
+    {
+      "action": "right",
+      "inputs": [
+        "ArrowRight",
+        "KeyD"
+      ]
+    },
+    {
+      "action": "up",
+      "inputs": [
+        "ArrowUp",
+        "KeyW"
+      ]
+    },
+    {
+      "action": "down",
+      "inputs": [
+        "ArrowDown",
+        "KeyS"
+      ]
+    },
+    {
+      "action": "confirm",
+      "inputs": [
+        "Space",
+        "Enter"
+      ]
+    },
+    {
+      "action": "fire",
+      "inputs": [
+        "KeyF"
+      ]
+    },
+    {
+      "action": "pause",
+      "inputs": [
+        "KeyP",
+        "Escape"
+      ]
+    },
+    {
+      "action": "choice:0",
+      "inputs": [
+        "Digit1"
+      ]
+    },
+    {
+      "action": "choice:1",
+      "inputs": [
+        "Digit2"
+      ]
+    },
+    {
+      "action": "choice:2",
+      "inputs": [
+        "Digit3"
+      ]
+    },
+    {
+      "action": "choice:3",
+      "inputs": [
+        "Digit4"
+      ]
+    }
+  ],
+  "saves": {
+    "namespace": "animalist-knight_vs_dragon",
+    "version": 1,
+    "defaults": {
+      "highScores": []
+    }
+  },
+  "scenes": [
+    {
+      "id": "main",
+      "systems": [],
+      "entities": []
+    }
+  ],
+  "plugins": [
+    {
+      "id": "merge-combat",
+      "version": "1.0.0",
+      "config": {
+        "width": 640,
+        "height": 480,
+        "seed": 20260907,
+        "columns": 8,
+        "levelRows": [
+          8,
+          7,
+          6,
+          5,
+          4
+        ],
+        "health": 100,
+        "enemyHealth": 100,
+        "damagePerRank": 10,
+        "enemyDamage": 10,
+        "maxRank": 5,
+        "phaseSeconds": [
+          0.3,
+          0.15,
+          0.4,
+          0.3,
+          0.15,
+          0.4
+        ],
+        "rays": [
+          [
+            [
+              1,
+              0
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          [
+            [
+              1,
+              1
+            ],
+            [
+              -1,
+              -1
+            ]
+          ],
+          [
+            [
+              -1,
+              1
+            ],
+            [
+              1,
+              -1
+            ]
+          ],
+          [
+            [
+              -1,
+              0
+            ],
+            [
+              0,
+              -1
+            ]
+          ]
+        ],
+        "neighborsRequired": 2,
+        "rayLength": 2,
+        "dialogs": [
+          "Первый бой. Разместите меч на свободной клетке. Два соседа одного ранга образуют комбинацию.",
+          "Второй бой. Поле становится теснее.",
+          "Третий бой. Используйте диагональные комбинации.",
+          "Четвёртый бой. Каждый свободный ход важен.",
+          "Последний бой. Победите дракона!"
+        ],
+        "pieceImages": [
+          "hero-1",
+          "hero-2",
+          "tile",
+          "bullet",
+          "platform"
+        ],
+        "obstacleImage": "enemy-1",
+        "cellImage": "source-cell",
+        "decorations": [
+          {
+            "id": "knight",
+            "image": "source-knight",
+            "x": 10,
+            "y": 280,
+            "width": 100,
+            "height": 155
+          },
+          {
+            "id": "dragon",
+            "image": "source-dragon",
+            "x": 525,
+            "y": 55,
+            "width": 110,
+            "height": 90
+          }
+        ]
+      }
+    },
+    {
+      "id": "session",
+      "version": "1.0.0",
+      "config": {
+        "menu": false,
+        "music": "music",
+        "effect": "effect",
+        "capacity": 10
+      }
+    }
+  ],
+  "presentation": {
+    "accent": "#ffd784",
+    "icon": "source-dragon",
+    "language": "ru",
+    "instructions": "Выберите свободную клетку. Соседние мечи одного ранга объединяются. Защита вдвое уменьшает ответный урон дракона.",
+    "controls": [],
+    "canvas": {
+      "backgroundImage": "battle-background",
+      "hud": [
+        {
+          "id": "title",
+          "source": "title",
+          "x": 140,
+          "y": 34,
+          "width": 360,
+          "height": 54,
+          "phases": [
+            "ready"
+          ],
+          "fontSize": 30,
+          "color": "#ffe1a0",
+          "align": "center"
+        },
+        {
+          "id": "dialog",
+          "source": "status",
+          "x": 112,
+          "y": 92,
+          "width": 416,
+          "height": 152,
+          "phases": [
+            "ready"
+          ],
+          "fontSize": 20,
+          "color": "#fff3d4",
+          "align": "center",
+          "maxLines": 5,
+          "background": "#241526e8",
+          "borderColor": "#d9a85c",
+          "borderWidth": 2,
+          "radius": 14,
+          "padding": 14
+        },
+        {
+          "id": "help",
+          "source": "instructions",
+          "x": 124,
+          "y": 252,
+          "width": 392,
+          "height": 94,
+          "phases": [
+            "ready"
+          ],
+          "fontSize": 15,
+          "color": "#e8d7bd",
+          "align": "center",
+          "maxLines": 4,
+          "background": "#181119c9",
+          "borderColor": "#72563c",
+          "borderWidth": 2,
+          "radius": 14,
+          "padding": 14
+        },
+        {
+          "id": "battle",
+          "source": "progress",
+          "x": 170,
+          "y": 9,
+          "width": 300,
+          "height": 30,
+          "phases": [
+            "playing"
+          ],
+          "fontSize": 17,
+          "color": "#ffe6b0",
+          "align": "center"
+        },
+        {
+          "id": "turn",
+          "source": "status",
+          "x": 155,
+          "y": 442,
+          "width": 330,
+          "height": 28,
+          "phases": [
+            "playing"
+          ],
+          "fontSize": 15,
+          "color": "#fff2d4",
+          "align": "center"
+        },
+        {
+          "id": "result",
+          "source": "status",
+          "x": 125,
+          "y": 150,
+          "width": 390,
+          "height": 105,
+          "phases": [
+            "won",
+            "lost"
+          ],
+          "fontSize": 30,
+          "color": "#ffe6ad",
+          "align": "center",
+          "maxLines": 3,
+          "background": "#241526e8",
+          "borderColor": "#d9a85c",
+          "borderWidth": 2,
+          "radius": 14,
+          "padding": 14
+        }
+      ],
+      "actionGroups": [
+        {
+          "match": "start",
+          "x": 160,
+          "y": 368,
+          "width": 150,
+          "height": 54,
+          "columns": 1,
+          "gap": 0,
+          "style": {
+            "background": "#356442dd",
+            "borderColor": "#d9a85c",
+            "color": "#fff",
+            "borderWidth": 2,
+            "radius": 14,
+            "fontSize": 22,
+            "selectedBackground": "#d9a85c"
+          }
+        },
+        {
+          "match": "continue",
+          "x": 330,
+          "y": 368,
+          "width": 150,
+          "height": 54,
+          "columns": 1,
+          "gap": 0,
+          "style": {
+            "background": "#553450dd",
+            "borderColor": "#d9a85c",
+            "color": "#fff",
+            "borderWidth": 2,
+            "radius": 14,
+            "fontSize": 22,
+            "selectedBackground": "#d9a85c"
+          }
+        },
+        {
+          "match": "confirm",
+          "x": 230,
+          "y": 364,
+          "width": 180,
+          "height": 58,
+          "columns": 1,
+          "gap": 0,
+          "style": {
+            "background": "#8b4d2ddd",
+            "borderColor": "#ffd784",
+            "color": "#fff",
+            "borderWidth": 2,
+            "radius": 14,
+            "fontSize": 22,
+            "selectedBackground": "#ffd784"
+          }
+        },
+        {
+          "match": "guard",
+          "x": 500,
+          "y": 382,
+          "width": 118,
+          "height": 48,
+          "columns": 1,
+          "gap": 0,
+          "style": {
+            "background": "#31577cdd",
+            "borderColor": "#a9d9ff",
+            "color": "#fff",
+            "borderWidth": 2,
+            "radius": 14,
+            "fontSize": 22,
+            "selectedBackground": "#a9d9ff"
+          }
+        },
+        {
+          "match": "menu",
+          "x": 18,
+          "y": 18,
+          "width": 92,
+          "height": 40,
+          "columns": 1,
+          "gap": 0,
+          "style": {
+            "background": "#211720bb",
+            "borderColor": "#aa8355",
+            "color": "#f4dfc0",
+            "borderWidth": 2,
+            "radius": 14,
+            "fontSize": 22,
+            "selectedBackground": "#aa8355"
+          }
+        },
+        {
+          "match": "restart",
+          "x": 220,
+          "y": 290,
+          "width": 200,
+          "height": 62,
+          "columns": 1,
+          "gap": 0,
+          "style": {
+            "background": "#843b32ee",
+            "borderColor": "#ffd784",
+            "color": "#fff",
+            "borderWidth": 2,
+            "radius": 14,
+            "fontSize": 22,
+            "selectedBackground": "#ffd784"
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "id": "./",
+  "name": "Башня равновесия",
+  "short_name": "Башня равновесия",
+  "description": "Коснитесь башни, когда новый этаж находится точно над предыдущим. Чем выше башня, тем быстрее движение.",
+  "lang": "ru",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "display_override": [
+    "fullscreen",
+    "standalone"
+  ],
+  "orientation": "any",
+  "background_color": "#101b30",
+  "theme_color": "#101b30",
+  "icons": [
+    {
+      "src": "./assets/images/bg-scene-v2.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 1,
+  "gameId": "arcanoid",
+  "engineVersion": "3.1.0",
+  "engineApiVersion": "1.0",
+  "toolchain": {
+    "node": ">=20",
+    "esbuild": "0.21.5"
+  },
+  "plugins": [
+    {
+      "id": "rebound",
+      "version": "1.0.0",
+      "coreCompatibility": "^3.1.0",
+      "dependencies": {}
+    },
+    {
+      "id": "session",
+      "version": "1.0.0",
+      "coreCompatibility": "^3.1.0",
+      "dependencies": {}
+    }
+  ],
+  "chunks": [
+    {
+      "path": "core.js",
+      "kind": "core",
+      "version": "3.1.0",
+      "sources": [
+        "src/config/RuntimeConfig.ts",
+        "src/core/ECS.ts",
+        "src/core/EventEmitter.ts",
+        "src/core/SeededRandom.ts",
+        "src/gameplay/browser.ts",
+        "src/gameplay/canvasImage.ts",
+        "src/gameplay/canvasLayout.ts",
+        "src/gameplay/canvasRenderer.ts",
+        "src/gameplay/registry.ts",
+        "src/gameplay/runtime.ts",
+        "src/gameplay/types.ts"
+      ],
+      "bytes": 29188,
+      "sha256": "e6eda37cf4017b679293a41098f453a8126b4004d85e17104db82925bc145bc2",
+      "profile": "prod",
+      "minified": true
+    },
+    {
+      "path": "plugins/rebound.js",
+      "kind": "plugin",
+      "version": "1.0.0",
+      "pluginId": "rebound",
+      "sources": [
+        "src/gameplay/rules/adapter.ts",
+        "src/gameplay/rules/arcade.ts",
+        "src/gameplay/rules/rebound.ts"
+      ],
+      "bytes": 6948,
+      "sha256": "a4ac74cbb4314bb97cddddaf7fc1b413a5d9894370e788a00ef55571b1b9ea08",
+      "profile": "prod",
+      "minified": true
+    },
+    {
+      "path": "plugins/session.js",
+      "kind": "plugin",
+      "version": "1.0.0",
+      "pluginId": "session",
+      "sources": [
+        "src/gameplay/plugins/session.ts",
+        "src/gameplay/plugins/shared.ts"
+      ],
+      "bytes": 3363,
+      "sha256": "de4612756bc8e675ce5209bbf14c6b918cd7f46dd0f286b304e163b002925a6d",
+      "profile": "prod",
+      "minified": true
+    },
+    {
+      "path": "app.js",
+      "kind": "bootstrap",
+      "version": "3.1.0",
+      "sources": [],
+      "bytes": 356,
+      "sha256": "b3855b1de31f38bae4804b329fbb22d72fc1316eb4c07670834fde6fbf44b079",
+      "profile": "prod",
+      "minified": true
+    }
+  ],
+  "assets": [
+    {
+      "id": "scene-background",
+      "path": "assets/images/bg-scene-v2.png",
+      "mime": "image/png",
+      "bytes": 2436008,
+      "sha256": "bddd029d59ab9bcd37672358d02665a81fea1652e723d3b2c0708762f929977b"
+    },
+    {
+      "id": "tile",
+      "path": "assets/images/tile.png",
+      "mime": "image/png",
+      "bytes": 1636,
+      "sha256": "1d6129503c7866d79bc8516b9afb27eca51cba17e0c916200142c884139d0f04"
+    },
+    {
+      "id": "platform",
+      "path": "assets/images/platform.png",
+      "mime": "image/png",
+      "bytes": 1636,
+      "sha256": "1d6129503c7866d79bc8516b9afb27eca51cba17e0c916200142c884139d0f04"
+    },
+    {
+      "id": "bullet",
+      "path": "assets/images/bullet.png",
+      "mime": "image/png",
+      "bytes": 5286,
+      "sha256": "c95a6b3d2d2c4afe7652dad1dacfa1f2531a6d0bd2e2666deb138766ad4cd600"
+    },
+    {
+      "id": "provenance",
+      "path": "assets/data/provenance.json",
+      "mime": "application/json",
+      "bytes": 1202,
+      "sha256": "c32a1067796634c96fd3ef8ba06fb1491d3fee5adf208a35510d2898b4549f52"
+    },
+    {
+      "id": "music",
+      "path": "assets/audio/music.wav",
+      "mime": "audio/wav",
+      "bytes": 71724,
+      "sha256": "cd0d6e8a87ab8042f66667768e8dba6894f7a959f6287e3afd5c74c7559a4182"
+    },
+    {
+      "id": "effect",
+      "path": "assets/audio/effect.wav",
+      "mime": "audio/wav",
+      "bytes": 5164,
+      "sha256": "bfb26044a89621ba42687cfa92448c17f61b6b9d8adb6ff3b6ed76b05263983f"
+    }
+  ],
+  "profile": "prod",
+  "manifestSha256": "486bbcab13f387620e3cecc521be4aa7e0bc95c63fd1415cefc78c8d6e535b94",
+  "runtimeBytes": 39855,
+  "budgets": {
+    "core": 300000,
+    "plugin": 100000,
+    "runtime": 1000000,
+    "assets": 20000000
+  }
+}

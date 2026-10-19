@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "source": "Original geometric artwork authored for this Animalist workspace",
+  "creator": "Animalist project",
+  "license": "CC0-1.0",
+  "date": "2026-09-07",
+  "method": "SVG source rasterized to PNG; no reference-game binaries copied",
+  "imageGeneration": {
+    "status": "generated",
+    "tool": "OpenAI built-in image generation",
+    "workflow": "See GAME_IMAGE_WORKFLOW.md"
+  },
+  "assets": [
+    {
+      "id": "tile",
+      "source": "assets/images/tile.svg",
+      "path": "assets/images/tile.png"
+    }
+  ],
+  "generated": {
+    "tool": "OpenAI built-in image generation",
+    "promptSummary": "Warm sunset city skyline with an open vertical construction corridor; no blocks, text or UI.",
+    "assets": [
+      {
+        "id": "scene-background",
+        "path": "assets/images/bg-scene-v2.png",
+        "sha256": "9302bce770afb2e77aa68c459b8ad85fa52772e8963620063ff56e873a280931"
+      }
+    ]
+  }
+}

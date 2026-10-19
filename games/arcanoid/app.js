@@ -1,0 +1,1 @@
+import{mountGame as n}from"./core.js";async function a(){const o=await fetch("./game.json").then(t=>{if(!t.ok)throw new Error("Cannot load game.json");return t.json()});globalThis.game=await n(o,{rebound:()=>import("./plugins/rebound.js"),session:()=>import("./plugins/session.js")})}a().catch(o=>{document.body.dataset.error=String(o),console.error(o)});

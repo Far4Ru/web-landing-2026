@@ -1,0 +1,189 @@
+{
+  "schemaVersion": 1,
+  "gameId": "knight_vs_dragon",
+  "engineVersion": "3.1.0",
+  "engineApiVersion": "1.0",
+  "toolchain": {
+    "node": ">=20",
+    "esbuild": "0.21.5"
+  },
+  "plugins": [
+    {
+      "id": "merge-combat",
+      "version": "1.0.0",
+      "coreCompatibility": "^3.1.0",
+      "dependencies": {}
+    },
+    {
+      "id": "session",
+      "version": "1.0.0",
+      "coreCompatibility": "^3.1.0",
+      "dependencies": {}
+    }
+  ],
+  "chunks": [
+    {
+      "path": "core.js",
+      "kind": "core",
+      "version": "3.1.0",
+      "sources": [
+        "src/config/RuntimeConfig.ts",
+        "src/core/ECS.ts",
+        "src/core/EventEmitter.ts",
+        "src/core/SeededRandom.ts",
+        "src/gameplay/browser.ts",
+        "src/gameplay/canvasImage.ts",
+        "src/gameplay/canvasLayout.ts",
+        "src/gameplay/canvasRenderer.ts",
+        "src/gameplay/registry.ts",
+        "src/gameplay/runtime.ts",
+        "src/gameplay/types.ts"
+      ],
+      "bytes": 29188,
+      "sha256": "e6eda37cf4017b679293a41098f453a8126b4004d85e17104db82925bc145bc2",
+      "profile": "prod",
+      "minified": true
+    },
+    {
+      "path": "plugins/merge-combat.js",
+      "kind": "plugin",
+      "version": "1.0.0",
+      "pluginId": "merge-combat",
+      "sources": [
+        "src/gameplay/rules/adapter.ts",
+        "src/gameplay/rules/merge-combat.ts",
+        "src/gameplay/rules/merge.ts"
+      ],
+      "bytes": 10486,
+      "sha256": "5c130e08bc94c1639835f7cf944c1147d0564dc9b2ef1c89aa41efc3f7b2c090",
+      "profile": "prod",
+      "minified": true
+    },
+    {
+      "path": "plugins/session.js",
+      "kind": "plugin",
+      "version": "1.0.0",
+      "pluginId": "session",
+      "sources": [
+        "src/gameplay/plugins/session.ts",
+        "src/gameplay/plugins/shared.ts"
+      ],
+      "bytes": 3363,
+      "sha256": "de4612756bc8e675ce5209bbf14c6b918cd7f46dd0f286b304e163b002925a6d",
+      "profile": "prod",
+      "minified": true
+    },
+    {
+      "path": "app.js",
+      "kind": "bootstrap",
+      "version": "3.1.0",
+      "sources": [],
+      "bytes": 368,
+      "sha256": "49d02bb0c885c8766a9af585f10d8fd8c9bae5ea1879e5e89e1190a133a9a482",
+      "profile": "prod",
+      "minified": true
+    }
+  ],
+  "assets": [
+    {
+      "id": "hero-1",
+      "path": "assets/images/source-sword-1.png",
+      "mime": "image/png",
+      "bytes": 5332,
+      "sha256": "27c9315d11a8b964c66884f379328a992e10d8abd7404ba637185db562e5c42e"
+    },
+    {
+      "id": "hero-2",
+      "path": "assets/images/source-sword-2.png",
+      "mime": "image/png",
+      "bytes": 6199,
+      "sha256": "8854a223e68e00d50ffe1c129264f30f51f51e9e21d29f3538d12ae4cac520c5"
+    },
+    {
+      "id": "tile",
+      "path": "assets/images/source-sword-3.png",
+      "mime": "image/png",
+      "bytes": 6332,
+      "sha256": "1f45fdc50733cb34aef5e823d2a7f004af70ea8131dd9ab1a4553fce7a582de2"
+    },
+    {
+      "id": "bullet",
+      "path": "assets/images/source-sword-4.png",
+      "mime": "image/png",
+      "bytes": 6198,
+      "sha256": "9b78c35b8d2d2357004364e180aea410f158e133935cc5d2597c9056c1130b30"
+    },
+    {
+      "id": "platform",
+      "path": "assets/images/source-sword-5.png",
+      "mime": "image/png",
+      "bytes": 6222,
+      "sha256": "3b6224911200215b42802984f0af458740b904864efd87b972842f47691f5eb0"
+    },
+    {
+      "id": "enemy-1",
+      "path": "assets/images/source-fire.png",
+      "mime": "image/png",
+      "bytes": 9388,
+      "sha256": "91ff3ecdf1efb820225572f38fd43e5f6d5ba482bbc578ba58738dd30db93998"
+    },
+    {
+      "id": "battle-background",
+      "path": "assets/images/bg-battle-v2.png",
+      "mime": "image/png",
+      "bytes": 2637162,
+      "sha256": "14d60c126f5db2c35aecac217e333d7df94ea93d5594116d0d08c9eeaf558ae3"
+    },
+    {
+      "id": "source-knight",
+      "path": "assets/images/source-knight.png",
+      "mime": "image/png",
+      "bytes": 29511,
+      "sha256": "a8d73bdd062a7ccaea0666327ef903a8ea0d895ee4dbc8b1069a9ae6eeb30acb"
+    },
+    {
+      "id": "source-dragon",
+      "path": "assets/images/source-dragon.png",
+      "mime": "image/png",
+      "bytes": 39118,
+      "sha256": "597b19e4a7c70aca9e83b4970a255df33eeedaa6ed7f0fe68ea739e4df78641a"
+    },
+    {
+      "id": "source-cell",
+      "path": "assets/images/source-cell.png",
+      "mime": "image/png",
+      "bytes": 3260,
+      "sha256": "3f84eeadf517970af9bb830978774d0dc2e9dafbab0f64a78e50149b7dfdbdce"
+    },
+    {
+      "id": "provenance",
+      "path": "assets/data/provenance.json",
+      "mime": "application/json",
+      "bytes": 1887,
+      "sha256": "757e1c7cc4b81ff127091c95429d650fade074ef40dea59bac96eeb3eb4753ca"
+    },
+    {
+      "id": "music",
+      "path": "assets/audio/music.wav",
+      "mime": "audio/wav",
+      "bytes": 71724,
+      "sha256": "cd0d6e8a87ab8042f66667768e8dba6894f7a959f6287e3afd5c74c7559a4182"
+    },
+    {
+      "id": "effect",
+      "path": "assets/audio/effect.wav",
+      "mime": "audio/wav",
+      "bytes": 5164,
+      "sha256": "bfb26044a89621ba42687cfa92448c17f61b6b9d8adb6ff3b6ed76b05263983f"
+    }
+  ],
+  "profile": "prod",
+  "manifestSha256": "4a9f5e33179338bef6fcff65d6a83d7cf8c427beb3aaa0be54dd2269633cb029",
+  "runtimeBytes": 43405,
+  "budgets": {
+    "core": 300000,
+    "plugin": 100000,
+    "runtime": 1000000,
+    "assets": 20000000
+  }
+}

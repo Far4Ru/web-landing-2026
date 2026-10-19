@@ -1,0 +1,364 @@
+{
+  "schemaVersion": 1,
+  "engineApiVersion": "1.0",
+  "project": {
+    "id": "doodle_jump",
+    "name": "Doodle Jump",
+    "width": 480,
+    "height": 640,
+    "background": "#101b30",
+    "initialScene": "main",
+    "seed": 20260907
+  },
+  "assets": [
+    {
+      "id": "scene-background",
+      "type": "image",
+      "path": "assets/images/bg-scene-v2.png"
+    },
+    {
+      "id": "hero-1",
+      "type": "image",
+      "path": "assets/images/hero-1.png"
+    },
+    {
+      "id": "hero-2",
+      "type": "image",
+      "path": "assets/images/hero-2.png"
+    },
+    {
+      "id": "enemy-1",
+      "type": "image",
+      "path": "assets/images/enemy-1.png"
+    },
+    {
+      "id": "enemy-2",
+      "type": "image",
+      "path": "assets/images/enemy-2.png"
+    },
+    {
+      "id": "platform",
+      "type": "image",
+      "path": "assets/images/platform.png"
+    },
+    {
+      "id": "bullet",
+      "type": "image",
+      "path": "assets/images/bullet.png"
+    },
+    {
+      "id": "provenance",
+      "type": "json",
+      "path": "assets/data/provenance.json"
+    },
+    {
+      "id": "music",
+      "type": "audio",
+      "path": "assets/audio/music.wav"
+    },
+    {
+      "id": "effect",
+      "type": "audio",
+      "path": "assets/audio/effect.wav"
+    }
+  ],
+  "input": [
+    {
+      "action": "left",
+      "inputs": [
+        "ArrowLeft",
+        "KeyA"
+      ]
+    },
+    {
+      "action": "right",
+      "inputs": [
+        "ArrowRight",
+        "KeyD"
+      ]
+    },
+    {
+      "action": "shoot",
+      "inputs": [
+        "Space",
+        "KeyF",
+        "PointerPrimary"
+      ]
+    },
+    {
+      "action": "start",
+      "inputs": [
+        "Enter"
+      ]
+    },
+    {
+      "action": "pause",
+      "inputs": [
+        "KeyP",
+        "Escape"
+      ]
+    },
+    {
+      "action": "restart",
+      "inputs": [
+        "KeyR"
+      ]
+    }
+  ],
+  "saves": {
+    "namespace": "animalist-doodle-jump",
+    "version": 1,
+    "defaults": {
+      "highScores": []
+    }
+  },
+  "scenes": [
+    {
+      "id": "main",
+      "systems": [],
+      "entities": []
+    }
+  ],
+  "plugins": [
+    {
+      "id": "vertical-platform",
+      "version": "1.0.0",
+      "config": {
+        "width": 480,
+        "height": 640,
+        "seed": 20260907,
+        "gravity": 900,
+        "jumpSpeed": 650,
+        "moveSpeed": 280,
+        "platformWidth": 100,
+        "gapMin": 70,
+        "gapMax": 120,
+        "enemyEvery": 4,
+        "enemySpeed": 45,
+        "lives": 3,
+        "shootCooldown": 0.18,
+        "projectileSpeed": 700,
+        "enemyPoints": 100,
+        "invulnerabilitySeconds": 1.2,
+        "heroFrames": [
+          "hero-1",
+          "hero-2"
+        ],
+        "enemyFrames": [
+          "enemy-1",
+          "enemy-2"
+        ],
+        "platformImage": "platform",
+        "bulletImage": "bullet"
+      }
+    },
+    {
+      "id": "session",
+      "version": "1.0.0",
+      "config": {
+        "menu": false,
+        "music": "music",
+        "effect": "effect",
+        "capacity": 10
+      }
+    }
+  ],
+  "presentation": {
+    "accent": "#fff078",
+    "language": "ru",
+    "instructions": "Прыжки автоматические. Управляйте в воздухе стрелками или A/D, стреляйте пробелом или F и поднимайтесь выше облаков.",
+    "controls": [
+      {
+        "action": "left",
+        "label": "←",
+        "x": 22,
+        "y": 545,
+        "width": 76,
+        "height": 70,
+        "style": {
+          "background": "#24578dcc",
+          "borderColor": "#d8f1ff",
+          "color": "#fff",
+          "borderWidth": 2,
+          "radius": 14,
+          "fontSize": 22,
+          "selectedBackground": "#d8f1ff"
+        },
+        "phases": [
+          "playing"
+        ]
+      },
+      {
+        "action": "right",
+        "label": "→",
+        "x": 382,
+        "y": 545,
+        "width": 76,
+        "height": 70,
+        "style": {
+          "background": "#24578dcc",
+          "borderColor": "#d8f1ff",
+          "color": "#fff",
+          "borderWidth": 2,
+          "radius": 14,
+          "fontSize": 22,
+          "selectedBackground": "#d8f1ff"
+        },
+        "phases": [
+          "playing"
+        ]
+      },
+      {
+        "action": "shoot",
+        "label": "✦",
+        "x": 390,
+        "y": 455,
+        "width": 64,
+        "height": 64,
+        "style": {
+          "background": "#825c28cc",
+          "borderColor": "#fff078",
+          "color": "#fff",
+          "borderWidth": 2,
+          "radius": 14,
+          "fontSize": 22,
+          "selectedBackground": "#fff078"
+        },
+        "phases": [
+          "playing"
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "action": "start",
+        "label": "ПРЫГАТЬ",
+        "x": 140,
+        "y": 420,
+        "width": 200,
+        "height": 66,
+        "style": {
+          "background": "#2f7aa0e8",
+          "borderColor": "#fff078",
+          "color": "#fff",
+          "borderWidth": 2,
+          "radius": 14,
+          "fontSize": 22,
+          "selectedBackground": "#fff078"
+        },
+        "phases": [
+          "ready"
+        ],
+        "hold": false
+      },
+      {
+        "action": "restart",
+        "label": "Ещё выше",
+        "x": 140,
+        "y": 420,
+        "width": 200,
+        "height": 66,
+        "style": {
+          "background": "#6c4d63e8",
+          "borderColor": "#fff078",
+          "color": "#fff",
+          "borderWidth": 2,
+          "radius": 14,
+          "fontSize": 22,
+          "selectedBackground": "#fff078"
+        },
+        "phases": [
+          "lost"
+        ],
+        "hold": false
+      }
+    ],
+    "canvas": {
+      "backgroundImage": "scene-background",
+      "hud": [
+        {
+          "id": "title",
+          "source": "title",
+          "x": 60,
+          "y": 68,
+          "width": 360,
+          "height": 60,
+          "phases": [
+            "ready"
+          ],
+          "fontSize": 38,
+          "color": "#25536f",
+          "align": "center"
+        },
+        {
+          "id": "help",
+          "source": "instructions",
+          "x": 52,
+          "y": 160,
+          "width": 376,
+          "height": 140,
+          "phases": [
+            "ready"
+          ],
+          "fontSize": 20,
+          "color": "#244558",
+          "align": "center",
+          "maxLines": 5,
+          "background": "#f4fbffe0",
+          "borderColor": "#82bdd5",
+          "borderWidth": 2,
+          "radius": 14,
+          "padding": 14
+        },
+        {
+          "id": "score",
+          "source": "score",
+          "x": 20,
+          "y": 18,
+          "width": 150,
+          "height": 34,
+          "phases": [
+            "playing"
+          ],
+          "prefix": "Высота: ",
+          "fontSize": 20,
+          "color": "#173e59"
+        },
+        {
+          "id": "progress",
+          "source": "progress",
+          "x": 315,
+          "y": 18,
+          "width": 145,
+          "height": 34,
+          "phases": [
+            "playing"
+          ],
+          "fontSize": 20,
+          "color": "#173e59",
+          "align": "right"
+        },
+        {
+          "id": "result",
+          "source": "status",
+          "x": 70,
+          "y": 270,
+          "width": 340,
+          "height": 112,
+          "phases": [
+            "lost"
+          ],
+          "fontSize": 27,
+          "color": "#3e354b",
+          "align": "center",
+          "maxLines": 4,
+          "background": "#fff9f0e8",
+          "borderColor": "#9a7591",
+          "borderWidth": 2,
+          "radius": 14,
+          "padding": 14
+        }
+      ]
+    }
+  }
+}

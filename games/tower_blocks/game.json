@@ -1,0 +1,343 @@
+{
+  "schemaVersion": 1,
+  "engineApiVersion": "1.0",
+  "project": {
+    "id": "tower_blocks",
+    "name": "Башня равновесия",
+    "width": 640,
+    "height": 480,
+    "background": "#101b30",
+    "initialScene": "main",
+    "seed": 20260907
+  },
+  "assets": [
+    {
+      "id": "scene-background",
+      "type": "image",
+      "path": "assets/images/bg-scene-v2.png"
+    },
+    {
+      "id": "tile",
+      "type": "image",
+      "path": "assets/images/tile.png"
+    },
+    {
+      "id": "provenance",
+      "type": "json",
+      "path": "assets/data/provenance.json"
+    },
+    {
+      "id": "music",
+      "type": "audio",
+      "path": "assets/audio/music.wav"
+    },
+    {
+      "id": "effect",
+      "type": "audio",
+      "path": "assets/audio/effect.wav"
+    }
+  ],
+  "input": [
+    {
+      "action": "left",
+      "inputs": [
+        "ArrowLeft",
+        "KeyA"
+      ]
+    },
+    {
+      "action": "right",
+      "inputs": [
+        "ArrowRight",
+        "KeyD"
+      ]
+    },
+    {
+      "action": "up",
+      "inputs": [
+        "ArrowUp",
+        "KeyW"
+      ]
+    },
+    {
+      "action": "down",
+      "inputs": [
+        "ArrowDown",
+        "KeyS"
+      ]
+    },
+    {
+      "action": "confirm",
+      "inputs": [
+        "Space",
+        "Enter"
+      ]
+    },
+    {
+      "action": "fire",
+      "inputs": [
+        "KeyF"
+      ]
+    },
+    {
+      "action": "pause",
+      "inputs": [
+        "KeyP",
+        "Escape"
+      ]
+    },
+    {
+      "action": "choice:0",
+      "inputs": [
+        "Digit1"
+      ]
+    },
+    {
+      "action": "choice:1",
+      "inputs": [
+        "Digit2"
+      ]
+    },
+    {
+      "action": "choice:2",
+      "inputs": [
+        "Digit3"
+      ]
+    },
+    {
+      "action": "choice:3",
+      "inputs": [
+        "Digit4"
+      ]
+    }
+  ],
+  "saves": {
+    "namespace": "animalist-tower_blocks",
+    "version": 1,
+    "defaults": {
+      "highScores": []
+    }
+  },
+  "scenes": [
+    {
+      "id": "main",
+      "systems": [],
+      "entities": []
+    }
+  ],
+  "plugins": [
+    {
+      "id": "stack",
+      "version": "1.0.0",
+      "config": {
+        "width": 640,
+        "height": 480,
+        "blockWidth": 240,
+        "blockHeight": 28,
+        "speed": 155,
+        "acceleration": 5,
+        "color": "#6de5be",
+        "image": "tile"
+      }
+    },
+    {
+      "id": "session",
+      "version": "1.0.0",
+      "config": {
+        "menu": true,
+        "music": "music",
+        "effect": "effect",
+        "capacity": 10
+      }
+    }
+  ],
+  "presentation": {
+    "accent": "#ffcf73",
+    "language": "ru",
+    "instructions": "Коснитесь башни, когда новый этаж находится точно над предыдущим. Чем выше башня, тем быстрее движение.",
+    "controls": [
+      {
+        "action": "confirm",
+        "label": "ПОСТАВИТЬ",
+        "x": 205,
+        "y": 410,
+        "width": 230,
+        "height": 52,
+        "style": {
+          "background": "#b95a31dd",
+          "borderColor": "#ffd48b",
+          "color": "#fff",
+          "borderWidth": 2,
+          "radius": 14,
+          "fontSize": 22,
+          "selectedBackground": "#ffd48b"
+        },
+        "phases": [
+          "playing"
+        ],
+        "hold": false
+      }
+    ],
+    "actions": [
+      {
+        "action": "session:start",
+        "label": "Строить",
+        "x": 210,
+        "y": 326,
+        "width": 220,
+        "height": 60,
+        "style": {
+          "background": "#9b4f30e8",
+          "borderColor": "#ffcf73",
+          "color": "#fff",
+          "borderWidth": 2,
+          "radius": 14,
+          "fontSize": 22,
+          "selectedBackground": "#ffcf73"
+        },
+        "phases": [
+          "ready"
+        ],
+        "hold": false
+      },
+      {
+        "action": "session:scores",
+        "label": "Рекорды",
+        "x": 220,
+        "y": 400,
+        "width": 200,
+        "height": 44,
+        "style": {
+          "background": "#45313ddd",
+          "borderColor": "#b48a77",
+          "color": "#fff",
+          "borderWidth": 2,
+          "radius": 14,
+          "fontSize": 22,
+          "selectedBackground": "#b48a77"
+        },
+        "phases": [
+          "ready"
+        ],
+        "hold": false
+      },
+      {
+        "action": "session:menu",
+        "label": "Пауза",
+        "x": 526,
+        "y": 18,
+        "width": 96,
+        "height": 38,
+        "style": {
+          "background": "#44303dcc",
+          "borderColor": "#b98b72",
+          "color": "#fff",
+          "borderWidth": 2,
+          "radius": 14,
+          "fontSize": 22,
+          "selectedBackground": "#b98b72"
+        },
+        "phases": [
+          "playing",
+          "won",
+          "lost"
+        ],
+        "hold": false
+      },
+      {
+        "action": "restart",
+        "label": "Новая башня",
+        "x": 200,
+        "y": 330,
+        "width": 240,
+        "height": 62,
+        "style": {
+          "background": "#a64b31e8",
+          "borderColor": "#ffd48b",
+          "color": "#fff",
+          "borderWidth": 2,
+          "radius": 14,
+          "fontSize": 22,
+          "selectedBackground": "#ffd48b"
+        },
+        "phases": [
+          "lost"
+        ],
+        "hold": false
+      }
+    ],
+    "canvas": {
+      "backgroundImage": "scene-background",
+      "hud": [
+        {
+          "id": "title",
+          "source": "title",
+          "x": 110,
+          "y": 58,
+          "width": 420,
+          "height": 58,
+          "phases": [
+            "ready"
+          ],
+          "fontSize": 34,
+          "color": "#fff0c7",
+          "align": "center"
+        },
+        {
+          "id": "help",
+          "source": "instructions",
+          "x": 110,
+          "y": 145,
+          "width": 420,
+          "height": 115,
+          "phases": [
+            "ready"
+          ],
+          "fontSize": 20,
+          "color": "#fff1dd",
+          "align": "center",
+          "maxLines": 4,
+          "background": "#39212bd8",
+          "borderColor": "#b86f49",
+          "borderWidth": 2,
+          "radius": 14,
+          "padding": 14
+        },
+        {
+          "id": "score",
+          "source": "score",
+          "x": 26,
+          "y": 18,
+          "width": 150,
+          "height": 36,
+          "phases": [
+            "playing"
+          ],
+          "prefix": "Этаж: ",
+          "fontSize": 22,
+          "color": "#fff0bd"
+        },
+        {
+          "id": "result",
+          "source": "status",
+          "x": 130,
+          "y": 205,
+          "width": 380,
+          "height": 92,
+          "phases": [
+            "lost"
+          ],
+          "fontSize": 30,
+          "color": "#fff0c7",
+          "align": "center",
+          "maxLines": 3,
+          "background": "#3b202be8",
+          "borderColor": "#ffcf73",
+          "borderWidth": 2,
+          "radius": 14,
+          "padding": 14
+        }
+      ]
+    }
+  }
+}

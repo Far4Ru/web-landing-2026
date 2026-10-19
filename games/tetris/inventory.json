@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "gameId": "tetris",
+  "engineVersion": "3.1.0",
+  "engineApiVersion": "1.0",
+  "toolchain": {
+    "node": ">=20",
+    "esbuild": "0.21.5"
+  },
+  "plugins": [
+    {
+      "id": "falling-grid",
+      "version": "1.0.0",
+      "coreCompatibility": "^3.1.0",
+      "dependencies": {}
+    },
+    {
+      "id": "session",
+      "version": "1.0.0",
+      "coreCompatibility": "^3.1.0",
+      "dependencies": {}
+    }
+  ],
+  "chunks": [
+    {
+      "path": "core.js",
+      "kind": "core",
+      "version": "3.1.0",
+      "sources": [
+        "src/config/RuntimeConfig.ts",
+        "src/core/ECS.ts",
+        "src/core/EventEmitter.ts",
+        "src/core/SeededRandom.ts",
+        "src/gameplay/browser.ts",
+        "src/gameplay/canvasImage.ts",
+        "src/gameplay/canvasLayout.ts",
+        "src/gameplay/canvasRenderer.ts",
+        "src/gameplay/registry.ts",
+        "src/gameplay/runtime.ts",
+        "src/gameplay/types.ts"
+      ],
+      "bytes": 29188,
+      "sha256": "e6eda37cf4017b679293a41098f453a8126b4004d85e17104db82925bc145bc2",
+      "profile": "prod",
+      "minified": true
+    },
+    {
+      "path": "plugins/falling-grid.js",
+      "kind": "plugin",
+      "version": "1.0.0",
+      "pluginId": "falling-grid",
+      "sources": [
+        "src/gameplay/rules/adapter.ts",
+        "src/gameplay/rules/board.ts",
+        "src/gameplay/rules/falling-grid.ts"
+      ],
+      "bytes": 8192,
+      "sha256": "903aa57252009084ad662acf22e9f3c486a06f7806667e6814e263ddd64568e1",
+      "profile": "prod",
+      "minified": true
+    },
+    {
+      "path": "plugins/session.js",
+      "kind": "plugin",
+      "version": "1.0.0",
+      "pluginId": "session",
+      "sources": [
+        "src/gameplay/plugins/session.ts",
+        "src/gameplay/plugins/shared.ts"
+      ],
+      "bytes": 3363,
+      "sha256": "de4612756bc8e675ce5209bbf14c6b918cd7f46dd0f286b304e163b002925a6d",
+      "profile": "prod",
+      "minified": true
+    },
+    {
+      "path": "app.js",
+      "kind": "bootstrap",
+      "version": "3.1.0",
+      "sources": [],
+      "bytes": 368,
+      "sha256": "df858c48747384e37c3837f66d3197895af6dcc9ddead3459e0278f931caf4a3",
+      "profile": "prod",
+      "minified": true
+    }
+  ],
+  "assets": [
+    {
+      "id": "scene-background",
+      "path": "assets/images/bg-scene-v2.png",
+      "mime": "image/png",
+      "bytes": 1852632,
+      "sha256": "f9f257cfc6373527f61b7c427c14fdfad8aa69ccb4c1663690fed5c53f01c0d3"
+    },
+    {
+      "id": "tile",
+      "path": "assets/images/tile.png",
+      "mime": "image/png",
+      "bytes": 1636,
+      "sha256": "1d6129503c7866d79bc8516b9afb27eca51cba17e0c916200142c884139d0f04"
+    },
+    {
+      "id": "music",
+      "path": "assets/audio/music.wav",
+      "mime": "audio/wav",
+      "bytes": 71724,
+      "sha256": "cd0d6e8a87ab8042f66667768e8dba6894f7a959f6287e3afd5c74c7559a4182"
+    },
+    {
+      "id": "effect",
+      "path": "assets/audio/effect.wav",
+      "mime": "audio/wav",
+      "bytes": 5164,
+      "sha256": "bfb26044a89621ba42687cfa92448c17f61b6b9d8adb6ff3b6ed76b05263983f"
+    }
+  ],
+  "profile": "prod",
+  "manifestSha256": "d9e3fcb2c4122e7e2e85d1cedee3e5013b96a8cfea0e6da420961a932407cb84",
+  "runtimeBytes": 41111,
+  "budgets": {
+    "core": 300000,
+    "plugin": 100000,
+    "runtime": 1000000,
+    "assets": 20000000
+  }
+}

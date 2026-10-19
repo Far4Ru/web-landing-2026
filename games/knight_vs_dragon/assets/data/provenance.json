@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-07",
+  "reference": {
+    "repository": "D:/GitHub/KnightVsDragon",
+    "commit": "0f0a9978757f06735601bc766be88c8eb58ae89b",
+    "permissionBasis": "User explicitly requested reuse from the local reference checkout. The upstream checkout has no asset provenance or redistribution license file, so this status must be resolved before public distribution.",
+    "assets": [
+      {"id": "source-knight", "source": "assets/images/knight.png", "path": "assets/images/source-knight.png"},
+      {"id": "source-dragon", "source": "assets/images/dragon.png", "path": "assets/images/source-dragon.png"},
+      {"id": "source-cell", "source": "assets/images/cell.png", "path": "assets/images/source-cell.png"},
+      {"id": "enemy-1", "source": "assets/images/fire.png", "path": "assets/images/source-fire.png"},
+      {"id": "hero-1", "source": "assets/images/sword.png", "path": "assets/images/source-sword-1.png"},
+      {"id": "hero-2", "source": "assets/images/sword_2.png", "path": "assets/images/source-sword-2.png"},
+      {"id": "tile", "source": "assets/images/sword_3.png", "path": "assets/images/source-sword-3.png"},
+      {"id": "bullet", "source": "assets/images/sword_4.png", "path": "assets/images/source-sword-4.png"},
+      {"id": "platform", "source": "assets/images/sword_5.png", "path": "assets/images/source-sword-5.png"}
+    ]
+  },
+  "generated": {
+    "tool": "OpenAI built-in image generation",
+    "promptSummary": "Polished 5:4 Slavic-fantasy forest clearing; quiet central grid area; no characters, grid, UI, text, logos or watermark.",
+    "assets": [
+      {"id": "battle-background", "path": "assets/images/bg-battle-v2.png", "sha256": "14d60c126f5db2c35aecac217e333d7df94ea93d5594116d0d08c9eeaf558ae3"}
+    ]
+  },
+  "audio": "Authored note-JSON replacements remain in use; unlicensed reference music was not copied."
+}

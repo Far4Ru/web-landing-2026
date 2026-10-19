@@ -1,0 +1,25 @@
+{
+  "id": "./",
+  "name": "Knight vs Dragon",
+  "short_name": "Knight vs Dragon",
+  "description": "Выберите свободную клетку. Соседние мечи одного ранга объединяются. Защита вдвое уменьшает ответный урон дракона.",
+  "lang": "ru",
+  "start_url": "./",
+  "scope": "./",
+  "display": "fullscreen",
+  "display_override": [
+    "fullscreen",
+    "standalone"
+  ],
+  "orientation": "any",
+  "background_color": "#101b30",
+  "theme_color": "#101b30",
+  "icons": [
+    {
+      "src": "./assets/images/source-dragon.png",
+      "sizes": "any",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

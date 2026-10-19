@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "source": "Original geometric SVG artwork authored for Animalist and rasterized to PNG",
+  "creator": "Animalist project",
+  "license": "CC0-1.0",
+  "imageGeneration": {
+    "status": "generated",
+    "tool": "OpenAI built-in image generation",
+    "workflow": "See GAME_IMAGE_WORKFLOW.md"
+  },
+  "audio": "Original PCM synthesized from assets/data/audio.json",
+  "generated": {
+    "tool": "OpenAI built-in image generation",
+    "promptSummary": "Vertical endless sky with clouds and floating islands around an open climbing corridor; no character, text or UI.",
+    "assets": [
+      {
+        "id": "scene-background",
+        "path": "assets/images/bg-scene-v2.png",
+        "sha256": "47f91caac7ffce55c92d66af45f5f9629b56769d44dc34c17cbec0577ab3b6fb"
+      }
+    ]
+  }
+}

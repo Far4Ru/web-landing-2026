@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "source": "Original geometric artwork authored for this Animalist workspace",
+  "creator": "Animalist project",
+  "license": "CC0-1.0",
+  "date": "2026-09-07",
+  "method": "SVG source rasterized to PNG; no reference-game binaries copied",
+  "imageGeneration": {
+    "status": "generated",
+    "tool": "OpenAI built-in image generation",
+    "workflow": "See GAME_IMAGE_WORKFLOW.md"
+  },
+  "assets": [
+    {
+      "id": "tile",
+      "source": "assets/images/tile.svg",
+      "path": "assets/images/tile.png"
+    },
+    {
+      "id": "platform",
+      "source": "assets/images/platform.svg",
+      "path": "assets/images/platform.png"
+    },
+    {
+      "id": "bullet",
+      "source": "assets/images/bullet.svg",
+      "path": "assets/images/bullet.png"
+    }
+  ],
+  "generated": {
+    "tool": "OpenAI built-in image generation",
+    "promptSummary": "Deep-space nebula and planet-horizon arcade backdrop with a clear central arena; no bricks, ball, text or UI.",
+    "assets": [
+      {
+        "id": "scene-background",
+        "path": "assets/images/bg-scene-v2.png",
+        "sha256": "bddd029d59ab9bcd37672358d02665a81fea1652e723d3b2c0708762f929977b"
+      }
+    ]
+  }
+}
