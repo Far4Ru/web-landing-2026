@@ -29,7 +29,7 @@ npm run build
 
 Команда отдельно собирает `scene/index.js` в `scene/scene.js`, затем формирует `dist/` со страницей, сценой, играми и ресурсами. Папку `dist/` можно разместить на обычном HTTP-сервере, в том числе в подпапке. Открытие через `file://` не гарантируется из-за ограничений браузера на загрузку модулей и вложенных игр.
 
-GitHub Actions запускает `npm ci` и `npm run build` при push и pull request, проверяет наличие сцены и игры в `dist/`, а затем прикрепляет папку как артефакт `static-site`.
+GitHub Actions запускает `npm ci` и `npm run build` при push в `main` и pull request, проверяет наличие сцены и игр в `dist/`, а затем прикрепляет папку как артефакт `static-site`. При push в `main` та же сборка публикуется на GitHub Pages: https://far4ru.github.io/web-landing-2026/.
 
 Чтобы добавить игру, положите её экспорт в `games/<id>/`, добавьте карточку в `index.html` и задайте положение и поворот в массивах `positions` и `rotations` файла `scene/index.js`.
 
